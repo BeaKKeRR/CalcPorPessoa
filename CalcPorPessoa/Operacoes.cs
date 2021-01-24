@@ -24,14 +24,14 @@ namespace CalcPorPessoa
 				totalDependentes += p.NumDependentes;
 			}
 
-			while (Math.Round(_valorAPagar % totalDependentes, 2) != 0)
+			while (Math.Round(_valorAPagar, 2) % totalDependentes) != 0)
 			{
 				_valorAPagar += 0.01m;
 			}
 
 			foreach (Pessoa p in ListaPessoas)
 			{
-				p.ValorCalculado = Math.Round(valorAPagar / totalDependentes * p.NumDependentes);
+				p.ValorCalculado = Math.Round(_valorAPagar / totalDependentes * p.NumDependentes, 2);
 			}
 		}
 
